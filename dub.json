@@ -1,50 +1,21 @@
 {
-	"name": "pwa",
-	"authors": [
-		"ons"
-	],
-	"description": "A minimal D application.",
-	"copyright": "Copyright © 2018, ons",
-	"license": "proprietary",
+	"name": "uim-pwa",
+	"authors": [ "UI Manufaktur UG" ],
+	"description": "D Library for PWA Apps",
+	"copyright": "Copyright © 2019, UI Manufaktur UG",
+	"license": "Apache 2.0",
 	"targetType": "library",
 	"dependencies": {
-		"vibe-d": "~>0.8.3",
-		"d2sqlite3": "~>0.16.2"
-		},
-	"subConfigurations": {
-        "d2sqlite3": "all-included"
-    },
-	"sourcePaths": [
-		"../core",
-		"../oop",
-		"../json",
-		"../sql",
-		"../sqldb",
-		"../sqlite",
-		"../data",
-		"../web",
-		"../css",
-		"../json",
-		"../html",
-		"../bs4",
-		"../vue",
-		"./"
-	],
-	"importPaths": [
-		"../core",
-		"../oop",
-		"../json",
-		"../sql",
-		"../sqldb",
-		"../sqlite",
-		"../data",
-		"../web",
-		"../css",
-		"../json",
-		"../html",
-		"../bs4",
-		"../vue",
-		"./"
+		"vibe-d": "~>0.8.5",
+		"uim-core":"~>0.19.5",
+		"uim-oop":"~>0.19.5",
+		"uim-json":"~>0.19.5",
+		"uim-css":"~>0.19.5",
+		"uim-html":"~>0.19.5",
+		"uim-js":"~>0.19.5",
+		"uim-vue":"~>0.19.5",
+		"uim-react":"~>0.19.5"
+		}
 	]
 
 }
