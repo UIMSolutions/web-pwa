@@ -1,0 +1,50 @@
+{
+	"name": "pwa",
+	"authors": [
+		"ons"
+	],
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2018, ons",
+	"license": "proprietary",
+	"targetType": "library",
+	"dependencies": {
+		"vibe-d": "~>0.8.3",
+		"d2sqlite3": "~>0.16.2"
+		},
+	"subConfigurations": {
+        "d2sqlite3": "all-included"
+    },
+	"sourcePaths": [
+		"../core",
+		"../oop",
+		"../json",
+		"../sql",
+		"../sqldb",
+		"../sqlite",
+		"../data",
+		"../web",
+		"../css",
+		"../json",
+		"../html",
+		"../bs4",
+		"../vue",
+		"./"
+	],
+	"importPaths": [
+		"../core",
+		"../oop",
+		"../json",
+		"../sql",
+		"../sqldb",
+		"../sqlite",
+		"../data",
+		"../web",
+		"../css",
+		"../json",
+		"../html",
+		"../bs4",
+		"../vue",
+		"./"
+	]
+
+}
