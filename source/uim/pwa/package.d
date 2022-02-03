@@ -1,12 +1,9 @@
 ﻿module uim.pwa;
 
-public import std.uuid;
-public import d2sqlite3;
-
+public import std;
 
 public import uim.core;
-public import uim.sql;
-public import uim.sqlite;
+public import uim.oop;
 
 public import uim.pwa.icon;
 public import uim.pwa.manifest;

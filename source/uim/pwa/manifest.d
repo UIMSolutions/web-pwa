@@ -14,7 +14,6 @@ class DPWAManifest {
 	@property auto app() { return versions.app; };
 	@property auto apps() { return app.apps; };
 	@property auto store() { return apps.store; };
-	@property auto database() { return store.database; };
 
 	@property auto name() { return _version.title; };
 	@property auto shortName() { return _version.shortTitle; };

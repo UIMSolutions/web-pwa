@@ -9,11 +9,11 @@ class DPWAIcon {
 		_app = myApp;
 	}
 
-	mixin(MyProperty!("DPWAApp", "app"));
+	mixin(OProperty!("DPWAApp", "app"));
 
-	mixin(MyProperty!("string", "src"));
-	mixin(MyProperty!("string", "type"));
-	mixin(MyProperty!("string", "sizes"));
+	mixin(OProperty!("string", "src"));
+	mixin(OProperty!("string", "type"));
+	mixin(OProperty!("string", "sizes"));
 
 	@property auto parameters() {
 		string[string] result;

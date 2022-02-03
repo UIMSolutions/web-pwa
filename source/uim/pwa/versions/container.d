@@ -3,6 +3,7 @@
 import uim.pwa;
 
 class DPWAVersions {
+	this() {}
 	this(DPWAApp myApp) {
 		_app = myApp;
 	}
@@ -10,9 +11,8 @@ class DPWAVersions {
 	@property auto app() { return _app; };
 	@property auto apps() { return app.apps; };
 	@property auto store() { return app.apps.store; };
-	@property auto database() { return app.apps.store.database; };
 
-	bool has(int id) {
+/*	bool has(int id) {
 		string where = WHEREID.format(app.id)~ANDVERSION.format(id);
 		foreach(row; database.query(SELECTFROMAPPS~where~" LIMIT 1")) return true;
 		return false;
@@ -89,5 +89,7 @@ class DPWAVersions {
 		_database.execute("DELETE FROM apps"~where);
 		return cast(O)this;
 	}
+	*/
 }
+auto PWAVersions() { return new DPWAVersions(); }
 auto PWAVersions(DPWAApp myApp) { return new DPWAVersions(myApp); }

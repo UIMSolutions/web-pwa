@@ -10,6 +10,7 @@ template PropertyLink(string datatype, string name, string obj) {
 }
 
 class DPWAApp {
+	this() {}
 	this(DPWAApps myApps) {
 		_apps = myApps;
 
@@ -21,31 +22,31 @@ class DPWAApp {
 	DPWAApps _apps;
 	@property auto apps() { return _apps; };
 	@property auto store() { return _apps.store; };
-	@property auto database() { return _apps.store.database; };
+// 	@property auto database() { return _apps.store.database; };
 
-	mixin(MyProperty!("DPWAVersions", "versions"));
+	mixin(OProperty!("DPWAVersions", "versions"));
 	DPWAVersion _lastVersion;
 	auto lastVersion() { 
-		if (!_lastVersion) _lastVersion = versions.last; 
+//		if (!_lastVersion) _lastVersion = versions.last; 
 		return _lastVersion;
 	}
 	auto manifest() { if (lastVersion) return lastVersion.manifest; return null; }
 	auto icons() { if (lastVersion) return lastVersion.icons; return null; }
 	auto relatedApplications() { if (lastVersion) return lastVersion.relatedApplications; return null; }
 
-	mixin(MyProperty!("UUID", "id"));
+	mixin(OProperty!("UUID", "id"));
 	@property O id(this O)(string newId) { _id = UUID(newId); return cast(O)this; };
 
-	mixin(MyProperty!("string", "name"));
-	mixin(MyProperty!("string", "appType"));
+	mixin(OProperty!("string", "name"));
+	mixin(OProperty!("string", "appType"));
 
-	mixin(MyProperty!("long", "created"));
+	mixin(OProperty!("long", "created"));
 	@property O created(this O)(string newTime) { _created = to!long(newTime); return cast(O)this; };
 
-	mixin(MyProperty!("long", "changed"));
+	mixin(OProperty!("long", "changed"));
 	@property O changed(this O)(string newTime) { _changed = to!long(newTime); return cast(O)this; };
 
-	mixin(MyProperty!("UUID", "ownerId"));
+	mixin(OProperty!("UUID", "ownerId"));
 	@property O ownerId(this O)(string newId) { _ownerId = UUID(newId); return cast(O)this; };
 
 	// link to last version (if exists)
@@ -175,6 +176,7 @@ class DPWAApp {
 
 	string work(string path) { return path; }
 }
+auto PWAApp() { return new DPWAApp(); }
 auto PWAApp(DPWAApps myApps) { return new DPWAApp(myApps); }
 
 unittest {

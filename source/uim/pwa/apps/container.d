@@ -3,13 +3,14 @@
 import uim.pwa;
 
 class DPWAApps {
+	this() {}
 	this(DPWAStore myStore) { 
 		_store = myStore; 
 	}
 	
 	protected DPWAStore _store;
 	@property auto store() { return _store; };
-	@property auto database() { return _store.database; };
+/*	@property auto database() { return _store.database; };
 
 	auto readRow(DPWAApp app, Row row) {
 		return app.id(row["id"]).name(row["name"]).created(row["created"]).changed(row["changed"]).ownerId(row["ownerid"]);
@@ -97,9 +98,10 @@ class DPWAApps {
 		_database.execute("DELETE FROM apps"~where);
 		return cast(O)this;
 	}
-
+*/
 }
-auto PWAApps(DPWAStore myStore) { return new DPWAApps(myStore); }
+auto PWAApps() { return new DPWAApps(); }
+// auto PWAApps(DPWAStore myStore) { return new DPWAApps(myStore); }
 
 unittest {
 	

@@ -3,6 +3,7 @@
 import uim.pwa;
 
 class DPWAVersion {
+	this() {} 
 	this(DPWAVersions myVersions) { 
 		_id = 1;
 		_versions = myVersions; 
@@ -16,44 +17,43 @@ class DPWAVersion {
 	@property auto app() { return versions.app; };
 	@property auto apps() { return versions.app.apps; };
 	@property auto store() { return versions.app.apps.store; };
-	@property auto database() { return versions.app.apps.store.database; };
 
-	mixin(MyProperty!("DPWAVersion", "appVersion"));
-	mixin(MyProperty!("DPWAManifest", "manifest"));
+	mixin(OProperty!("DPWAVersion", "appVersion"));
+	mixin(OProperty!("DPWAManifest", "manifest"));
 
-	mixin(MyProperty!("int", "id"));
+	mixin(OProperty!("int", "id"));
 	@property O id(this O)(string newId) { return this.id(to!int(newId)); };
 
-	mixin(MyProperty!("long", "created"));
+	mixin(OProperty!("long", "created"));
 	@property O created(this O)(string newTime) { _created = to!long(newTime); return cast(O)this; };
 	
-	mixin(MyProperty!("long", "changed"));
+	mixin(OProperty!("long", "changed"));
 	@property O changed(this O)(string newTime) { _changed = to!long(newTime); return cast(O)this; };
 
-	mixin(MyProperty!("string", "title"));
-	mixin(MyProperty!("string", "shortTitle"));
-	mixin(MyProperty!("string", "description"));
-	mixin(MyProperty!("string", "startUrl"));
-	mixin(MyProperty!("string", "appScope"));
-	mixin(MyProperty!("string", "display"));
-	mixin(MyProperty!("string", "lang"));
-	mixin(MyProperty!("string", "backgroundColor"));
-	mixin(MyProperty!("string", "themeColor"));
-	mixin(MyProperty!("string", "category"));
-	mixin(MyProperty!("string[]", "keywords"));
+	mixin(OProperty!("string", "title"));
+	mixin(OProperty!("string", "shortTitle"));
+	mixin(OProperty!("string", "description"));
+	mixin(OProperty!("string", "startUrl"));
+	mixin(OProperty!("string", "appScope"));
+	mixin(OProperty!("string", "display"));
+	mixin(OProperty!("string", "lang"));
+	mixin(OProperty!("string", "backgroundColor"));
+	mixin(OProperty!("string", "themeColor"));
+	mixin(OProperty!("string", "category"));
+	mixin(OProperty!("string[]", "keywords"));
 	@property O keywords(this O)(string newKeywords) { 
 		auto kws = newKeywords.split(",");
 		_keywords = [];
 		foreach(kw; kws) _keywords ~= kw.strip();
 		return cast(O)this;
 	}
-	mixin(MyProperty!("bool", "preferRelatedApplications"));
-	mixin(MyProperty!("string", "orientation"));
-	mixin(MyProperty!("string", "dir")); // ...ltr or rtl
-	mixin(MyProperty!("string", "image"));
+	mixin(OProperty!("bool", "preferRelatedApplications"));
+	mixin(OProperty!("string", "orientation"));
+	mixin(OProperty!("string", "dir")); // ...ltr or rtl
+	mixin(OProperty!("string", "image"));
 
-	mixin(MyProperty!("DPWAIcon[]", "icons"));
-	mixin(MyProperty!("DPWARelatedApplication[]", "relatedApplications"));
+	mixin(OProperty!("DPWAIcon[]", "icons"));
+	mixin(OProperty!("DPWARelatedApplication[]", "relatedApplications"));
 
 	O add(this O)(DPWAIcon addIcon) {
 		icons ~= addIcon;
@@ -95,5 +95,6 @@ class DPWAVersion {
 		return null;
 	}
 }
+auto PWAVersion() { return new DPWAVersion(); }
 auto PWAVersion(DPWAVersions myVersions) { return new DPWAVersion(myVersions); }
 

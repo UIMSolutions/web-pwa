@@ -9,11 +9,11 @@ class DPWARelatedApplication {
 		_app = myApp;
 	}
 	
-	mixin(MyProperty!("DPWAApp", "app"));
+	mixin(OProperty!("DPWAApp", "app"));
 
-	mixin(MyProperty!("string", "platform"));
-	mixin(MyProperty!("string", "url"));
-	mixin(MyProperty!("string", "id"));
+	mixin(OProperty!("string", "platform"));
+	mixin(OProperty!("string", "url"));
+	mixin(OProperty!("string", "id"));
 
 	@property auto parameters() {
 		string[string] result;
