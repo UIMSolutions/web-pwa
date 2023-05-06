@@ -1,9 +1,6 @@
 ﻿module uim.pwa;
 
-public import std;
-
-public import uim.core;
-public import uim.oop;
+mixin(ImportPhobos!());
 
 public import uim.pwa.icon;
 public import uim.pwa.manifest;
