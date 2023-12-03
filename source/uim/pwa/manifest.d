@@ -43,7 +43,7 @@ class DPWAManifest {
 	}
 
 	@property auto parameters() {
-		string[string] result;
+		STRINGAA result;
 		
 		if (name) result["name"] = name;
 		if (shortName) result["shortname"] = shortName;
@@ -60,7 +60,7 @@ class DPWAManifest {
 
 		return result;
 	}
-	@property O parameters(this O)(string[string] newValues) {
+	@property O parameters(this O)(STRINGAA newValues) {
 		foreach(key, value; newValues) {
 			switch(key.toLower) {
 				case "name": name(value); break;

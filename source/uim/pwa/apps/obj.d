@@ -73,7 +73,7 @@ class DPWAApp {
 	@property long versionChanged() { return lastVersion.changed; };
 
 	@property auto parameters() {
-		string[string] result;
+		STRINGAA result;
 
 		result["id"] = _id.toString;
 		result["name"] = _name;
@@ -84,7 +84,7 @@ class DPWAApp {
 
 		return result;
 	}
-	@property O parameters(this O)(string[string] newValues) {
+	@property O parameters(this O)(STRINGAA newValues) {
 		foreach(key, value; newValues) {
 			switch(key.toLower) {
 				case "id": id(value); break;
@@ -122,7 +122,7 @@ class DPWAApp {
 		database.execute("DELETE FROM APPS"~WHEREID.format(id));
 		return null;
 	}
-	void response(string path, string[string] parameters, HTTPServerResponse res) { 
+	void response(string path, STRINGAA parameters, HTTPServerResponse res) { 
 		string filepath = "/home/ons/D/UIM18/PUBLIC/sites/uim/apps/"~name;
 		writeln("FILEPATH~PATH: ", filepath~path);
 		if ((path == "/") || (path == "")) path = "/html/index.html";

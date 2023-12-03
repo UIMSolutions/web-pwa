@@ -18,12 +18,12 @@ class DPWAApps {
 
 	bool has(UUID id) {
 		string where = WHEREID.format(id);
-		foreach(approw; database.query(SELECTFROMAPPS~where~" LIMIT 1")) return true;
+		foreach(approw; database.query(SELECTFROMAPPS~where~" LIMIT 1")) { return true; }
 		return false;
 	}
 	bool has(string name) {
 		string where = WHERENAME.format(name);
-		foreach(approw; database.query(SELECTFROMAPPS~where~" LIMIT 1")) return true;
+		foreach(approw; database.query(SELECTFROMAPPS~where~" LIMIT 1")) { return true; }
 		return false;
 	}
 

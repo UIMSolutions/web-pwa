@@ -14,7 +14,7 @@ class DPWAVersions {
 
 /*	bool has(int id) {
 		string where = WHEREID.format(app.id)~ANDVERSION.format(id);
-		foreach(row; database.query(SELECTFROMAPPS~where~" LIMIT 1")) return true;
+		foreach(row; database.query(SELECTFROMAPPS~where~" LIMIT 1")) { return true; }
 		return false;
 	}
 	DPWAVersion opIndex(int versionNo) {

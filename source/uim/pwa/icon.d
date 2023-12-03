@@ -16,7 +16,7 @@ class DPWAIcon {
 	mixin(OProperty!("string", "sizes"));
 
 	@property auto parameters() {
-		string[string] result;
+		STRINGAA result;
 		
 		result["src"] = src;
 		result["type"] = type;
@@ -24,7 +24,7 @@ class DPWAIcon {
 
 		return result;
 	}
-	@property O parameters(this O)(string[string] newValues) {
+	@property O parameters(this O)(STRINGAA newValues) {
 		foreach(key, value; newValues) {
 			switch(key.toLower) {
 				case "src": src(value); break;

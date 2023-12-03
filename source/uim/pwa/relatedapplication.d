@@ -16,7 +16,7 @@ class DPWARelatedApplication {
 	mixin(OProperty!("string", "id"));
 
 	@property auto parameters() {
-		string[string] result;
+		STRINGAA result;
 		
 		result["platform"] = platform;
 		result["url"] = url;
@@ -24,7 +24,7 @@ class DPWARelatedApplication {
 		
 		return result;
 	}
-	@property O parameters(this O)(string[string] newValues) {
+	@property O parameters(this O)(STRINGAA newValues) {
 		foreach(key, value; newValues) {
 			switch(key.toLower) {
 				case "platform": platform(value); break;
